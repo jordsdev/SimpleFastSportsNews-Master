@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:clickable="true"
+    android:fadingEdge="horizontal|vertical"
+    app:cardCornerRadius="20dp">
+
+    <LinearLayout
+        android:id="@+id/holder_image_title_description"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/article_source"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#C31014"
+            android:fontFamily="@font/heebo_medium"
+            android:padding="8dp"
+            android:text="Sky Sports News"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/article_imagefromUrl"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:contentDescription="TODO" />
+
+        <CheckBox
+            android:id="@+id/checkBox4"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:background="#C31014"
+            android:fontFamily="@font/heebo_medium"
+            android:padding="8dp"
+            android:text="Save"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/article_title"
+            android:layout_width="397dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/heebo_medium"
+            android:padding="8dp"
+            android:text="Liverpool win the Champions League for a 7th time!"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/article_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/heebo_medium"
+            android:maxLines="2"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="8dp"
+            android:text="Liverpool Football Club, win the Champions League for a 7th time, making it Back-To-Back wins for the reds in Europe. "
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

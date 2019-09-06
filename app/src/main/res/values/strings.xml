@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Fast News</string>
+    <string name="api_key">5bd0dd469f7a4e929db2c1b4bcbef36e</string>
+    <string name="title_home">Home</string>
+    <string name="title_saved">Saved</string>
+    <string name="title_notifications">Notifications</string>
+</resources>

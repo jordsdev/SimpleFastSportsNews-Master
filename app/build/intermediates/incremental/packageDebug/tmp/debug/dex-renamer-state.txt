@@ -1,0 +1,4 @@
+#Fri Sep 06 11:54:02 BST 2019
+base.0=/Users/android/Downloads/SimpleFastSportsNews-Master/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
