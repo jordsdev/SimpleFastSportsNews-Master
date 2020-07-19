@@ -23,6 +23,8 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
+import okhttp3.Cache
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -105,7 +107,7 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
     //Setup the Search menu item
     private fun setUpSearchMenuItem(menu: Menu) {
         val searchManager: SearchManager =
-            (getSystemService(Context.SEARCH_SERVICE)) as SearchManager
+                (getSystemService(Context.SEARCH_SERVICE)) as SearchManager
         val searchView: SearchView = ((menu.findItem(R.id.action_search)?.actionView)) as SearchView
         val searchMenuItem: MenuItem = menu.findItem(R.id.action_search)
 
@@ -211,11 +213,21 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
 
     //Retrofit Builder and generator.
     private fun generateRetrofitBuilder(): Retrofit {
+
+        val cacheSize: Long = 10 * 1024 * 1024 // 10 MB
+
+        val cache = Cache(cacheDir, cacheSize)
+
+        val okHttpClient = OkHttpClient.Builder()
+                .cache(cache)
+                .build()
+
         return Retrofit.Builder()
-            .baseUrl(ENDPOINT_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .build()
+                .baseUrl(ENDPOINT_URL)
+                .client(okHttpClient)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build()
     }
 }
 
