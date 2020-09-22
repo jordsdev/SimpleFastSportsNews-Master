@@ -12,6 +12,8 @@ import com.squareup.picasso.Picasso
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import kotlinx.android.synthetic.main.item_article.view.*
 
 //Main Class
@@ -38,9 +40,11 @@ class ArticleAdapter(
     override fun onBindViewHolder(articleViewHolder: ArticleViewHolder, itemIndex: Int) {
         val article: Article = articleList.get(itemIndex)
         setPropertiesForArticleViewHolder(articleViewHolder, article)
-        articleViewHolder.cardView.setOnClickListener {
+        articleViewHolder.cardView.article_imagefromUrl.setOnClickListener {
+
 
             Log.v("CLICK", "CLICK PERFORMED")
+
         }
     }
 
@@ -50,6 +54,8 @@ class ArticleAdapter(
         articleViewHolder.title.text = article.title
         articleViewHolder.description.text = article.description
         articleViewHolder.source.text = article.source.name
+        articleViewHolder.url.text = article.url
+
     }
 
     //Picasso settings for the Url to Image. Parameters are set to center the image in the
@@ -83,5 +89,7 @@ class ArticleAdapter(
         val title: TextView by lazy { view.article_title }
         val description: TextView by lazy { view.article_description }
         val source: TextView by lazy { view.article_source }
+        val url: TextView by lazy { view.article_url }
+
     }
 }

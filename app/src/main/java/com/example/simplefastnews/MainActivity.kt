@@ -2,6 +2,8 @@ package com.example.simplefastnews
 
 import android.app.SearchManager
 import android.content.Context
+import android.content.IntentFilter
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -23,15 +25,18 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.item_article.*
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Url
+import java.lang.UnsupportedOperationException
 
 class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
 
     //Url of the News API
-    private val ENDPOINT_URL by lazy { "https://newsapi.org/v2/" }
+    private val ENDPOINT_URL by lazy { "https://newsapi.org/v2/"}
     private lateinit var sportHeadlinesApi: SportHeadlinesApi
     private lateinit var newsApiConfig: String
     private lateinit var articleAdapter: ArticleAdapter
@@ -209,7 +214,6 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
         }
         swipe_refresh.isRefreshing = false
     }
-
 
     //Retrofit Builder and generator.
     private fun generateRetrofitBuilder(): Retrofit {
