@@ -2,18 +2,16 @@ package com.example.simplefastnews
 
 import android.app.SearchManager
 import android.content.Context
-import android.content.IntentFilter
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.appcompat.widget.SearchView
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.simplefastnews.adapter.ArticleAdapter
 import com.example.simplefastnews.model.Article
 import com.example.simplefastnews.model.TopSportHeadlines
@@ -25,13 +23,10 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.item_article.*
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Url
-import java.lang.UnsupportedOperationException
 
 class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
 
@@ -70,6 +65,7 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
         recycler_view.layoutManager = LinearLayoutManager(this)
         recycler_view.itemAnimator = DefaultItemAnimator()
         recycler_view.adapter = articleAdapter
+        recycler_view.setNestedScrollingEnabled(false)
     }
 
     //onStart  check the users keyword input
@@ -163,7 +159,11 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
     //Query the API for the normal articles
     private fun queryTopSportHeadlines() {
         swipe_refresh.isRefreshing = true
-        topSportHeadlinesObservable = sportHeadlinesApi.getTopHeadlines("sport", "gb", newsApiConfig)
+        topSportHeadlinesObservable = sportHeadlinesApi.getTopHeadlines(
+            "sport",
+            "gb",
+            newsApiConfig
+        )
         subscribeObservableOfArticle()
     }
 

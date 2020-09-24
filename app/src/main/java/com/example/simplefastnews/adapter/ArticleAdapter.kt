@@ -4,21 +4,21 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebViewClient
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.RecyclerView
 import com.example.simplefastnews.R
 import com.example.simplefastnews.model.Article
 import com.squareup.picasso.Picasso
-import androidx.cardview.widget.CardView
-import androidx.recyclerview.widget.RecyclerView
-import android.util.Log
-import android.webkit.WebView
-import android.webkit.WebViewClient
-import kotlinx.android.synthetic.main.item_article.view.*
+import kotlinx.android.synthetic.main.item.view.*
+
 
 //Main Class
 class ArticleAdapter(
-    private var articleList: ArrayList<Article>) : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>() {
+    private var articleList: ArrayList<Article>
+) : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>() {
 
     //Random picture that's 150 x 150 and its a placeholder for the images.
     private val placeHolderImage = "https://www.google.com/imgres?imgurl=https%3A%2F%2Fimages-wixmp-ed30a86b8c4ca887773594c2.wixmp.com%2Ff%2F5a59d3ac-0919-4001-b19f-e5d5787e8ee8%2Fd8xo72u-720e48f5-e268-406e-b094-3e7faa116ca3.png%3Ftoken%3DeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzVhNTlkM2FjLTA5MTktNDAwMS1iMTlmLWU1ZDU3ODdlOGVlOFwvZDh4bzcydS03MjBlNDhmNS1lMjY4LTQwNmUtYjA5NC0zZTdmYWExMTZjYTMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.1_6J67MFdLRQFRD8JhDGHNqsxEsQTteRqHo7tEyjMd4&imgrefurl=https%3A%2F%2Fwww.deviantart.com%2Fkr151%2Fart%2FLFC-Crest-Avatar-540285654&docid=eXhpyzlN3un2FM&tbnid=qp9cTtJhiAituM%3A&vet=10ahUKEwid9MfHkYfkAhVoShUIHd7WDuoQMwhNKAgwCA..i&w=512&h=512&client=safari&bih=645&biw=1280&q=512x%20512%20image%20lfc&ved=0ahUKEwid9MfHkYfkAhVoShUIHd7WDuoQMwhNKAgwCA&iact=mrc&uact=8"
@@ -27,7 +27,11 @@ class ArticleAdapter(
     //Create the ViewHolder
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): ArticleViewHolder {
         viewGroupContext = viewGroup.context
-        val itemView: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_article, viewGroup, false)
+        val itemView: View = LayoutInflater.from(viewGroup.context).inflate(
+            R.layout.item,
+            viewGroup,
+            false
+        )
         return ArticleViewHolder(itemView)
     }
 
@@ -42,19 +46,28 @@ class ArticleAdapter(
         setPropertiesForArticleViewHolder(articleViewHolder, article)
         articleViewHolder.cardView.article_imagefromUrl.setOnClickListener {
 
-
-            Log.v("CLICK", "CLICK PERFORMED")
+            articleViewHolder.cardView.article_WebView.loadUrl(article.url)
+            articleViewHolder.cardView.article_WebView.getSettings().setLoadsImagesAutomatically(true)
+            articleViewHolder.cardView.article_WebView.getSettings().setJavaScriptEnabled(true)
+            articleViewHolder.cardView.article_WebView.getSettings().setDomStorageEnabled(true)
+            articleViewHolder.cardView.article_WebView.getSettings().setSupportZoom(true)
+            articleViewHolder.cardView.article_WebView.getSettings().setBuiltInZoomControls(true)
+            articleViewHolder.cardView.article_WebView.getSettings().setDisplayZoomControls(false)
+            articleViewHolder.cardView.article_WebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY)
+            articleViewHolder.cardView.article_WebView.setWebViewClient(WebViewClient())
 
         }
     }
 
     //Set the properties for the ArticleViewHolder
-    private fun setPropertiesForArticleViewHolder(articleViewHolder: ArticleViewHolder, article: Article) {
+    private fun setPropertiesForArticleViewHolder(
+        articleViewHolder: ArticleViewHolder,
+        article: Article
+    ) {
         checkForUrlToImage(article, articleViewHolder)
         articleViewHolder.title.text = article.title
         articleViewHolder.description.text = article.description
         articleViewHolder.source.text = article.source.name
-        articleViewHolder.url.text = article.url
 
     }
 
@@ -89,7 +102,6 @@ class ArticleAdapter(
         val title: TextView by lazy { view.article_title }
         val description: TextView by lazy { view.article_description }
         val source: TextView by lazy { view.article_source }
-        val url: TextView by lazy { view.article_url }
 
     }
 }

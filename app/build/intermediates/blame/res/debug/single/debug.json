@@ -48,10 +48,6 @@
         "source": "C:\\Users\\js334\\Documents\\GitHub\\SimpleFastSportsNews-Master\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\saved.png"
     },
     {
-        "merged": "C:\\Users\\js334\\Documents\\GitHub\\SimpleFastSportsNews-Master\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_article.xml.flat",
-        "source": "C:\\Users\\js334\\Documents\\GitHub\\SimpleFastSportsNews-Master\\app\\src\\main\\res\\layout\\item_article.xml"
-    },
-    {
         "merged": "C:\\Users\\js334\\Documents\\GitHub\\SimpleFastSportsNews-Master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_home.png.flat",
         "source": "C:\\Users\\js334\\Documents\\GitHub\\SimpleFastSportsNews-Master\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\home.png"
     },
@@ -270,6 +266,10 @@
     {
         "merged": "C:\\Users\\js334\\Documents\\GitHub\\SimpleFastSportsNews-Master\\app\\build\\intermediates\\res\\merged\\debug\\font_genghiskhan.otf.flat",
         "source": "C:\\Users\\js334\\Documents\\GitHub\\SimpleFastSportsNews-Master\\app\\src\\main\\res\\font\\genghiskhan.otf"
+    },
+    {
+        "merged": "C:\\Users\\js334\\Documents\\GitHub\\SimpleFastSportsNews-Master\\app\\build\\intermediates\\res\\merged\\debug\\layout_item.xml.flat",
+        "source": "C:\\Users\\js334\\Documents\\GitHub\\SimpleFastSportsNews-Master\\app\\src\\main\\res\\layout\\item.xml"
     },
     {
         "merged": "C:\\Users\\js334\\Documents\\GitHub\\SimpleFastSportsNews-Master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_page_right.png.flat",

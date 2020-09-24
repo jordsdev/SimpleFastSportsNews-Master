@@ -4,32 +4,22 @@
             "outputFile": "C:\\Users\\js334\\Documents\\GitHub\\SimpleFastSportsNews-Master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\js334\\.gradle\\caches\\transforms-2\\files-2.1\\a6214063c4c8e996686341ccbfd10574\\appcompat-1.0.2\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\js334\\.gradle\\caches\\transforms-2\\files-2.1\\c2ee9082f6a14f94642b1d01d2e0ecaf\\material-1.2.1\\res\\values-v23\\values-v23.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,19,32,33,34,35,36",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,190,325,400,487,1277,2079,2206,2311,2426,2533",
-                        "endLines": "2,3,4,5,18,31,32,33,34,35,36",
-                        "endColumns": "134,134,74,86,12,12,126,104,114,106,112",
-                        "endOffsets": "185,320,395,482,1272,2074,2201,2306,2421,2528,2641"
+                        "startLines": "2,6",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,320",
+                        "endLines": "5,9",
+                        "endColumns": "10,10",
+                        "endOffsets": "315,588"
                     },
                     "to": {
-                        "startLines": "8,9,10,11,12,25,38,39,40,41,42",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "651,786,921,996,1083,1873,2675,2802,2907,3022,3129",
-                        "endLines": "8,9,10,11,24,37,38,39,40,41,42",
-                        "endColumns": "134,134,74,86,12,12,126,104,114,106,112",
-                        "endOffsets": "781,916,991,1078,1868,2670,2797,2902,3017,3124,3237"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\js334\\.gradle\\caches\\transforms-2\\files-2.1\\d1e0a3d9e0edb17ae1b51405b04b8371\\material-1.1.0-alpha01\\res\\values-v23\\values-v23.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,143,251,353,441,549",
-                        "endColumns": "87,107,101,87,107,101",
-                        "endOffsets": "138,246,348,436,544,646"
+                        "startLines": "53,57",
+                        "startColumns": "4,4",
+                        "startOffsets": "3674,3939",
+                        "endLines": "56,60",
+                        "endColumns": "10,10",
+                        "endOffsets": "3934,4207"
                     }
                 },
                 {
@@ -43,12 +33,23 @@
                         "endOffsets": "200"
                     },
                     "to": {
-                        "startLines": "43",
+                        "startLines": "50",
                         "startColumns": "4",
-                        "startOffsets": "3242",
-                        "endLines": "45",
+                        "startOffsets": "3524",
+                        "endLines": "52",
                         "endColumns": "12",
-                        "endOffsets": "3387"
+                        "endOffsets": "3669"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\js334\\.gradle\\caches\\transforms-2\\files-2.1\\1febb533b931119ea16fade5a5c0add0\\appcompat-1.2.0\\res\\values-v23\\values-v23.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,190,325,400,487,1371,2267,2386,2513,2735,2959,3074,3181,3294",
+                        "endLines": "2,3,4,5,19,33,34,35,38,42,43,44,45,49",
+                        "endColumns": "134,134,74,86,12,12,118,126,12,12,114,106,112,12",
+                        "endOffsets": "185,320,395,482,1366,2262,2381,2508,2730,2954,3069,3176,3289,3519"
                     }
                 }
             ]
