@@ -1,6 +1,7 @@
 package com.example.simplefastnews.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simplefastnews.R
+import com.example.simplefastnews.ScrollingActivity
 import com.example.simplefastnews.model.Article
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item.view.*
@@ -45,17 +47,7 @@ class ArticleAdapter(
         val article: Article = articleList.get(itemIndex)
         setPropertiesForArticleViewHolder(articleViewHolder, article)
         articleViewHolder.cardView.article_imagefromUrl.setOnClickListener {
-
-            articleViewHolder.cardView.article_WebView.loadUrl(article.url)
-            articleViewHolder.cardView.article_WebView.getSettings().setLoadsImagesAutomatically(true)
-            articleViewHolder.cardView.article_WebView.getSettings().setJavaScriptEnabled(true)
-            articleViewHolder.cardView.article_WebView.getSettings().setDomStorageEnabled(true)
-            articleViewHolder.cardView.article_WebView.getSettings().setSupportZoom(true)
-            articleViewHolder.cardView.article_WebView.getSettings().setBuiltInZoomControls(true)
-            articleViewHolder.cardView.article_WebView.getSettings().setDisplayZoomControls(false)
-            articleViewHolder.cardView.article_WebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY)
-            articleViewHolder.cardView.article_WebView.setWebViewClient(WebViewClient())
-
+            viewGroupContext.startActivity(Intent(viewGroupContext, ScrollingActivity::class.java).putExtra("URL", article.url))
         }
     }
 
